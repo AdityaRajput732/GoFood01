@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://gofoodbackend-mjdy.onrender.com/api/loginuser",
+      "https://gofood01backend.onrender.com/api/loginuser",
       {
         method: "POST",
         headers: {
