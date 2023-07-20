@@ -10,7 +10,7 @@ function Home() {
 
   const loadData = async () => {
     let response = await fetch(
-      "https://gofoodbackend-mjdy.onrender.com/api/foodData",
+      "https://gofood01backend.onrender.com/api/foodData",
       {
         method: "GET",
         headers: {
