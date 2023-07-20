@@ -13,7 +13,7 @@ export default function Signup() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://gofoodbackend-mjdy.onrender.com/api/createuser",
+      "https://gofood01backend.onrender.com/api/createuser",
       {
         method: "POST",
         headers: {
