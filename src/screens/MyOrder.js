@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 export default function MyOrder() {
   const [orderData, setOrderData] = useState("");
   const fetchMyOrder = async () => {
-    await fetch("https://gofoodbackend-mjdy.onrender.com/api/myOrderData", {
+    await fetch("https://gofood01backend.onrender.com/api/myOrderData", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
