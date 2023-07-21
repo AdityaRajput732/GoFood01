@@ -15,11 +15,11 @@ router.post("/orderData", async (req, res) => {
         email: req.body.email,
         order_data: [data],
       }).then(() => {
-        res.status(200).json({ success: true });
+        res.json({ success: true });
       });
     } catch (err) {
       console.log("error", err.message);
-      res.status(400).send("Server Error", err.message);
+      res.send("Server Error", err.message);
     }
   } else {
     try {
@@ -27,10 +27,10 @@ router.post("/orderData", async (req, res) => {
         { email: req.body.email },
         { $push: { order_data: data } }
       ).then(() => {
-        res.status(200).json({ success: true });
+        res.json({ success: true });
       });
     } catch (err) {
-      res.status(400).send("Server Error", err.message);
+      res.send("Server Error", err.message);
     }
   }
 });
