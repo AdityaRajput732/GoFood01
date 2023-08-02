@@ -27,7 +27,7 @@ router.post(
         email: req.body.email,
         location: req.body.location,
       });
-      res.json({ success: true });
+      res.status(200).json({ success: true });
     } catch (err) {
       console.log(err);
       res.json({ success: false });
@@ -70,7 +70,7 @@ router.post(
         },
       };
       const authToken = jwt.sign(data, jwtSecret);
-      return res.json({ success: true, authToken: authToken });
+      return res.status(200).json({ success: true, authToken: authToken });
     } catch (err) {
       console.log(err);
       res.json({ success: false });
