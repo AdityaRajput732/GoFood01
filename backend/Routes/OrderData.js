@@ -15,7 +15,7 @@ router.post("/orderData", async (req, res) => {
         email: req.body.email,
         order_data: [data],
       }).then(() => {
-        res.json({ success: true });
+        res.status(200).json({ success: true });
       });
     } catch (err) {
       console.log("error", err.message);
@@ -27,7 +27,7 @@ router.post("/orderData", async (req, res) => {
         { email: req.body.email },
         { $push: { order_data: data } }
       ).then(() => {
-        res.json({ success: true });
+        res.status(200).json({ success: true });
       });
     } catch (err) {
       res.send("Server Error", err.message);
