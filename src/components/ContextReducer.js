@@ -18,24 +18,27 @@ const reducer = (state, action) => {
         },
       ];
     case "REMOVE":
-      return state.filter((item, index) => index !== action.index);
+      let newArr = [...state];
+      newArr.splice(action.index, 1);
+      return newArr;
     case "UPDATE":
-        return state.map((item) => {
-        if (item.id === action.id) {
-          return {
-            ...item,
-            qty: parseInt(action.qty) + item.qty,
-            price: action.price + item.price,
+      let arr = [...state];
+      arr.find((food, index) => {
+        if (food.id === action.id) {
+          arr[index] = {
+            ...food,
+            qty: parseInt(action.qty) + food.qty,
+            price: action.price + food.price,
           };
         }
-        return item;
+        return arr;
       });
+      return arr;
     case "DROP":
-      // let emptyArr = [];
-      return [];
+      let emptyArr = [];
+      return emptyArr;
     default:
       console.log("Error in Reducer");
-      return state;
   }
 };
 
