@@ -7,18 +7,18 @@ router.post("/orderData", async (req, res) => {
   console.log("data", data);
   await data.splice(0, 0, { Order_date: req.body.order_date });
 
-  let eld = await Order.findOne({ email: req.body.email });
-  console.log("eld", eld);
+  let eld = await Order.findOne({ 'email': req.body.email });
+  // console.log("eld", eld);
   if (eld === null) {
     try {
       await Order.create({
         email: req.body.email,
         order_data: [data],
       }).then(() => {
-        res.status(200).json({ success: true });
+        res.json({ success: true });
       });
     } catch (err) {
-      console.log("error", err.message);
+      // console.log("error", err.message);
       res.send("Server Error", err.message);
     }
   } else {
@@ -27,7 +27,7 @@ router.post("/orderData", async (req, res) => {
         { email: req.body.email },
         { $push: { order_data: data } }
       ).then(() => {
-        res.status(200).json({ success: true });
+        res.json({ success: true });
       });
     } catch (err) {
       res.send("Server Error", err.message);
@@ -40,7 +40,7 @@ router.post("/myorderData", async (req, res) => {
     let myData = await Order.findOne({ email: req.body.email });
     res.json({ orderData: myData });
   } catch (err) {
-    res.status(400).send("Server Error", err.message);
+    res.send("Server Error", err.message);
   }
 });
 module.exports = router;
