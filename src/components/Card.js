@@ -46,7 +46,7 @@ export default function Card(props) {
       id: props.foodItem._id,
       name: props.foodItem.name,
       price: finalPrice,
-      img: props.foodItem.img,
+      // img: props.foodItem.img,
       qty: qty,
       size: size,
     });
