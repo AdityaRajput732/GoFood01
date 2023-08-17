@@ -29,7 +29,7 @@ export default function Signup() {
     );
     const json = await response.json();
     // console.log(json);
-      if (json.success) {
+      if (json.status === 200) {
       //save the auth toke to local storage and redirect
       localStorage.setItem('token', json.authToken)
       navigate("/login")
