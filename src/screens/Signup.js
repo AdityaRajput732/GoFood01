@@ -28,7 +28,7 @@ const navigate = useNavigate();
       }
     );
     const json = await response.json();
-    // console.log(json);
+    console.log(json);
       if (json.status === 200) {
       //save the auth toke to local storage and redirect
       localStorage.setItem('token', json.authToken)
