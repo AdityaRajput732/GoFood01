@@ -6,7 +6,7 @@ export default function Signup() {
     name: "",
     email: "",
     password: "",
-    geolocation: "",
+    location: "",
   });
 
   const handleSubmit = async (e) => {
@@ -28,9 +28,15 @@ export default function Signup() {
       }
     );
     const json = await response.json();
-    console.log(json);
-    if (!json.success) {
-      alert("Enter valid Credentials");
+    // console.log(json);
+      if (json.success) {
+      //save the auth toke to local storage and redirect
+      localStorage.setItem('token', json.authToken)
+      navigate("/login")
+
+    }
+    else {
+      alert("Enter Valid Credentials")
     }
   };
   const onChange = (e) => {
