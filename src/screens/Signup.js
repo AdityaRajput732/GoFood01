@@ -23,7 +23,7 @@ const navigate = useNavigate();
           name: credentials.name,
           email: credentials.email,
           password: credentials.password,
-          location: credentials.geolocation,
+          location: credentials.location,
         }),
       }
     );
@@ -96,8 +96,8 @@ const navigate = useNavigate();
             <input
               type="text"
               className="form-control"
-              name="geolocation"
-              value={credentials.geolocation}
+              name="location"
+              value={credentials.location}
               onChange={onChange}
             />
           </div>
