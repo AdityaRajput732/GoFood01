@@ -31,9 +31,9 @@ export default function Cart() {
       }
     );
     console.log("response", response);
-    if (response.status === 200) {
+    // if (response.status === 200) {
       dispatch({ type: "DROP" });
-    }
+    // }
   };
 
   let totalPrice = data.reduce((total, food) => total + food.price, 0);
