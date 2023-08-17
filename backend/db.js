@@ -12,7 +12,7 @@ const mongoDB = () => {
       useUnifiedTopology: true,
     })
     .then(() => {
-      console.log("connected");
+      // console.log("connected");
       const foodDataPromise = mongoose.connection.db
         .collection("foodData")
         .find({})
